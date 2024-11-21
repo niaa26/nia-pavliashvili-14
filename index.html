@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="box">
+    <h1></h1>
+    <p></p>
+  </div>
+
+  <script>
+
+    const box = document.querySelector('.box');
+    const h1 = box.querySelector('h1');
+    const p = box.querySelector('p');
+
+    h1.textContent = 'ვენეცია';
+    p.textContent = 'ვენეცია ვენეტოს რეგიონის დედაქალია. სახელი მომდინარეობს აქ მაცხოვრებელი ანტიკური პერიოდის ხალხისგან, რომლებსაც ვენეტები ეწოდებოდათ.';
+
+    p.style.fontSize = '20px';
+    p.style.color = '#ffff00';
+
+    const circle = document.createElement('div');
+    circle.style.width = '100px';
+    circle.style.height = '100px';
+    circle.style.backgroundColor = 'yellow';
+    circle.style.borderRadius = '50%';
+    circle.style.margin = '20px auto';
+    circle.style.transition = 'background-color 0.3s';
+
+    circle.addEventListener('mouseover', () => {
+      circle.style.backgroundColor = 'red';
+    });
+
+    circle.addEventListener('mouseout', () => {
+      circle.style.backgroundColor = 'yellow';
+    });
+
+    box.appendChild(circle);
+
+    const button = document.createElement('button');
+    button.textContent = 'DELETE CIRCLE';
+    box.appendChild(button);
+
+    let isCircleVisible = true;
+
+    button.addEventListener('click', () => {
+      if (isCircleVisible) {
+        circle.style.display = 'none';
+        button.textContent = 'RETURN CIRCLE';
+      } else {
+        circle.style.display = 'block';
+        button.textContent = 'DELETE CIRCLE';
+      }
+      isCircleVisible = !isCircleVisible;
+    });
+  </script>
+</body>
+</html>
